@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.jpa") version "1.9.20"
 }
 
-group = "com.example"
+group = "com.slitherkotlin.game"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -36,7 +36,7 @@ dependencies {
     // Spring Cloud 
     implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
-    implementation("org.springframewerk.cloud:spring-cloud-starter-bootstrap")
+    implementation("org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.8")
 
     // Kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -47,7 +47,7 @@ dependencies {
 
     // Database
     runtimeOnly("org.postgresql:postgresql")
-    implementation("io.r2dbc:r2dbc-postgresql")
+    implementation("io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 
     // Message Broker
@@ -90,7 +90,7 @@ dependencyManagement {
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions {
-        freeCompileArgs += "-Xjsr305=strict"
+        freeCompilerArgs += "-Xjsr305=strict"
         jvmTarget = "17"
     }
 }

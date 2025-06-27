@@ -1,1 +1,6 @@
 .*/
+
+# Files and Folders of Gradle
+.gradle/
+**/build/
+/game-service/gradle/

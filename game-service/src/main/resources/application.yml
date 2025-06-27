@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: game-service
+  main:
+    web-application-type: reactive
