@@ -1,4 +1,4 @@
-.*/
+.context-files
 # Files and Folders of Gradle
 .gradle/
 **/build/

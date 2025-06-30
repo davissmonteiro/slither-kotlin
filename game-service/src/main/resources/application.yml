@@ -1,25 +1,14 @@
 server:
   port: 8080
-
 spring:
   application:
     name: game-service
+  r2dbc: 
+    url: r2dbc:postgresql://localhost:5432/slitherdb
+    username: slither
+    password: slither123
+  datasource:
+    driver-class-name: org.postgresql.Driver
   main:
     web-application-type: reactive
-
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/your_base
-    username: your_user
-    password: your_pass
-  
-  datasource:
-    url: jdbc:postgresql://localhost:5432/your_base
-    username: your_base
-    password: your_pass
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-    
+    allow-bean-definition-overriding: true
