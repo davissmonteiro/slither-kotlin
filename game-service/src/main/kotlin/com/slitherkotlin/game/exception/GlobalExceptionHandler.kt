@@ -14,3 +14,4 @@ class GlobalExceptionHandler {
         return Mono.just(mapOf("error" to (e.message ?: "Validation error")))
     }
 }
+
