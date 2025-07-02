@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono
 @RestControllerAdvice
 class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException::class)
-    fun handleIllegalArgument(e: IllegalArgumentException, exchange): Mono<Map<String, String>> {
+    fun handleIllegalArgument(e: IllegalArgumentException, exchange: ServerWebExchange): Mono<Map<String, String>> {
         exchange.response.statusCode = HttpStatus.BAD_REQUEST
         return Mono.just(mapOf("error" to (e.message ?: "Validation error")))
     }
