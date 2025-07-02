@@ -10,6 +10,14 @@ import reactor.core.publisher.Mono
 class PlayerService(private val repository: PlayerRepository) {
     fun findAll(): Flux<Player> = repository.findAll()
     fun findById(id: String): Mono<Player> = repository.findById(id)
-    fun save(player: Player): Mono<Player> = repository.save(player)
+
+    fun save(player: Player): Mono<Player> = 
+        repository.findAll()
+            .filter { it.nickname == player.nickname }
+            .hasElements()
+            .flatMap { exists -> 
+                if (exists) Mono.error(IllegalArgumentException("Nickname já existe"))
+                else repository.save(player)    
+            }
     fun deleteById(id: String): Mono<Void> = repository.deleteById(id)
 }
